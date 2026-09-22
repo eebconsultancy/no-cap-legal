@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — No Cap</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #ffffff;
+  }
+  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
+  h2 { font-size: 1.25em; margin-top: 2em; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.3em; }
+  .effective-date { color: #555; margin-bottom: 2em; }
+  ul { padding-left: 1.4em; }
+  li { margin-bottom: 0.4em; }
+  a { color: #0645AD; }
+  .note {
+    background: #f7f7f7;
+    border-left: 3px solid #999;
+    padding: 10px 16px;
+    margin: 1em 0;
+    font-size: 0.95em;
+  }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px; font-size: 0.92em; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="effective-date">Effective date: September 22, 2026</p>
+
+<p>
+This Privacy Policy explains how EEB Consultancy LLC ("<strong>we</strong>," "<strong>us</strong>," or
+"<strong>our</strong>") handles information in connection with the No Cap - Who Was Right? mobile
+application ("<strong>No Cap</strong>," "<strong>the App</strong>"). It describes what you submit to the
+App, what we send to our backend and to Google's Gemini API to generate a response, what we store and for
+how long, and the choices available to you.
+</p>
+
+<p>
+By using No Cap, you agree to the practices described in this Privacy Policy. If you do not agree, please
+do not use the App.
+</p>
+
+<h2>1. Information You Submit</h2>
+<p>When you create a case in No Cap, you may enter:</p>
+<ul>
+  <li>A relationship label describing your connection to the other person (e.g. "Roommate," "Friend")</li>
+  <li>Your name and the other person's name, as you choose to enter them</li>
+  <li>A written description of the situation ("the situation")</li>
+  <li>Optional text evidence — messages, notes, or other text you paste or type in yourself</li>
+  <li>Answers to any clarifying questions the App may ask to generate a more accurate result</li>
+</ul>
+<p>
+No Cap's evidence field accepts plain text only. The App does not currently offer a way to attach photos,
+screenshots, or images as evidence, and this Policy does not describe any such capability because it does
+not exist.
+</p>
+
+<h2>2. How This Information Is Used and Where It Goes</h2>
+<p>
+The case information described above is sent from your device, over an encrypted HTTPS connection, to our
+own backend service, which we run on Cloudflare's Workers platform. Our backend is dedicated to No Cap and
+is not shared with any other application.
+</p>
+<p>
+Our backend forwards the relevant case content (relationship, names, situation, evidence text, and any
+clarification questions/answers, and — for the "Help Me Respond" feature — the previously generated
+analysis) to the Google Gemini API, solely for the purpose of generating the AI-based analysis or suggested
+response you requested. We do not send this content to Google for any other purpose, and we do not send it
+to any advertiser or data broker.
+</p>
+<div class="note">
+We do not control, and cannot make representations about, how Google or Cloudflare internally process or
+retain data on their own systems. We do not claim any specific retention period for either provider, and
+you should refer to
+<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's own privacy policy</a>
+and
+<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's own privacy policy</a>
+for information about their respective data practices.
+</div>
+
+<h2>3. What Our Backend Stores — and Does Not Store</h2>
+<p>
+<strong>Our backend does not persist your case content.</strong> The situation you describe, your evidence
+text, the names you enter, clarification answers, and the AI-generated analysis pass through our backend
+only for the duration of the request needed to generate a response. Our backend does not write this content
+to a database, file, or any other durable storage on our side.
+</p>
+
+<h2>4. Network and Abuse-Prevention Data</h2>
+<p>
+Cloudflare, as the infrastructure provider hosting our backend, may process request and network metadata —
+including IP addresses — as part of operating its network. This is inherent to how any HTTPS request
+reaches our backend and is outside the data our own application code stores.
+</p>
+<p>Within our own backend code, specifically:</p>
+<ul>
+  <li>
+    We derive a salted SHA-256 hash of your IP address (combined with a private, backend-only salt value) to
+    identify abusive or excessive request patterns and to enforce fair-use limits on how many AI requests can
+    be made from the same origin over a given period.
+  </li>
+  <li>
+    <strong>Our application does not store your raw IP address.</strong> Only the salted hash described
+    above is written to our storage — never the IP address itself.
+  </li>
+  <li>
+    Rate-limiting and fair-use counters keyed to that hash automatically expire according to their configured
+    time-to-live: short-term abuse-protection counters expire within a matter of minutes past their
+    measurement window, and longer fair-use counters (used to bound daily, weekly, and monthly AI usage per
+    origin) expire within a similar margin past their respective windows. None of these counters are kept
+    indefinitely, and none of them contain your case content, name, or any other identifying information
+    beyond the salted hash itself.
+  </li>
+  <li>
+    We also keep aggregate, non-identifying operational metrics (such as the total number of AI requests,
+    successes, and failures across all users on a given day) to understand and manage service load and
+    cost. These aggregate metrics are not tied to any individual user or hash, and are retained for up to 31
+    days before automatically expiring.
+  </li>
+</ul>
+
+<h2>5. Information Stored On Your Device</h2>
+<p>
+By default, a case you create in No Cap exists only in the App's memory for that session and is not written
+to your device's storage. If you leave the App or it is closed, an unsaved case is not retained.
+</p>
+<p>
+If you choose to tap <strong>"Save Case,"</strong> — an explicit, opt-in action — the full case (including
+the situation, evidence, names, the AI-generated analysis, and any clarification answers) is written to a
+file on your device, stored in the App's private application data area at
+<code>Application Support/NoCap/saved_cases.json</code>. This location is private to the App and is not
+browsable through the Files app.
+</p>
+<p>
+On a best-effort basis, we mark this saved-case file as excluded from device backups (such as iCloud or
+iTunes/Finder backups). This is a privacy precaution, not an absolute guarantee, and may not succeed in
+every circumstance.
+</p>
+<p>
+We do not sync saved cases to any cloud service, and we do not have access to this file — it never leaves
+your device unless you separately choose to back up or transfer your device.
+</p>
+<p>
+You can delete an individual saved case at any time from the History tab (press and hold a case, then choose
+"Delete"). This permanently removes that case from your device. There is currently no single "clear all
+data" control; each case is deleted individually.
+</p>
+
+<h2>6. Sharing a Verdict</h2>
+<p>
+If you choose to use the "Share Verdict" feature, No Cap opens your device's native share sheet with a
+plain-text summary (relationship, names, the decision, responsibility breakdown, summary, reasoning,
+mistakes, and recommendation). This summary deliberately excludes your original situation narrative, raw
+evidence, and clarification answers. Nothing is shared, sent, or transmitted anywhere unless and until you
+personally invoke the share sheet and choose a destination — the App does not share this content on its own
+or in the background.
+</p>
+
+<h2>7. Accounts and Sign-In</h2>
+<p>
+No Cap does not require or offer account creation, sign-in, or authentication of any kind. We do not collect
+your email address, password, or any other account credential in connection with using the App itself. (We
+may receive an email address you send to our support address voluntarily — see "Contact Us" below.)
+</p>
+
+<h2>8. Advertising, Analytics, and Tracking</h2>
+<p>No Cap does not use:</p>
+<ul>
+  <li>Advertising or ad networks of any kind</li>
+  <li>Third-party analytics services</li>
+  <li>Cross-app or cross-site tracking technologies</li>
+  <li>The Advertising Identifier (IDFA) or Identifier for Vendors (IDFV)</li>
+  <li>Cookies (No Cap is a native app, not a website, and has no cookie mechanism)</li>
+</ul>
+<p>
+We also do not collect your location, access your contacts, or register a push-notification token. If any
+of this changes in a future version of the App, we will update this Policy and, where required by applicable
+law or App Store guidelines, seek your consent first.
+</p>
+
+<h2>9. Subscriptions and Payment</h2>
+<p>
+No Cap offers optional auto-renewable subscriptions, processed entirely through Apple's In-App Purchase
+system (StoreKit). When you subscribe, Apple handles the transaction directly — we do not receive, process,
+or store your payment card number, billing address, or other payment credentials. We only receive
+confirmation from Apple's systems that a valid subscription entitlement exists, which we use to unlock
+premium features within the App.
+</p>
+
+<h2>10. What You Should Avoid Submitting</h2>
+<p>
+No Cap is designed to help you reason through everyday interpersonal disputes. Please avoid entering more
+sensitive personal information than is necessary to describe your situation — for example, avoid including
+Social Security numbers, financial account numbers, government identification numbers, health/medical
+record details, or other similarly sensitive data in the situation or evidence fields, unless it is truly
+necessary and unavoidable to describe your dispute.
+</p>
+
+<h2>11. AI-Generated Content — Accuracy Limitations</h2>
+<p>
+No Cap's analysis, suggested responses, and any other AI-generated content are produced by a third-party
+large language model (Google's Gemini) based solely on the information you provide. This output can be
+inaccurate, incomplete, or reflect an incorrect understanding of your situation. It is provided for
+informational and entertainment purposes only and should not be relied upon as professional legal, medical,
+psychological, financial, or other professional advice. You should not make important decisions based solely
+on this content, and you should consult a qualified professional for guidance specific to your circumstances.
+</p>
+
+<h2>12. Children's Privacy</h2>
+<p>
+No Cap is not directed to children, and we do not knowingly collect information from children under the age
+required by applicable law in your jurisdiction. If you believe a child has provided us with information,
+please contact us using the information below so we can address it.
+</p>
+
+<h2>13. Changes to This Policy</h2>
+<p>
+We may update this Privacy Policy from time to time as the App evolves. If we make material changes, we will
+update the effective date above and, where appropriate, provide additional notice within the App.
+</p>
+
+<h2>14. Contact Us</h2>
+<p>
+If you have questions about this Privacy Policy or our data practices, contact us at:
+</p>
+<p>
+EEB Consultancy LLC<br>
+Email: <a href="mailto:info@eebconsultancyllc.com">info@eebconsultancyllc.com</a>
+</p>
+
+</body>
+</html>
