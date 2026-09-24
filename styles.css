@@ -1,0 +1,473 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #050505;
+  --surface: #0b0b0d;
+  --surface-hover: #111116;
+
+  --text: #f5f5f7;
+  --secondary: #a1a1aa;
+  --body-text: #b4b4bc;
+
+  --border: #26262b;
+
+  --accent: #4da3ff;
+  --accent-soft: rgba(77, 163, 255, 0.12);
+
+  --max-width: 1024px;
+}
+
+
+/* --------------------------------
+   Base
+-------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(calc(100% - 40px), var(--max-width));
+  margin: 0 auto;
+}
+
+
+/* --------------------------------
+   Home Hero
+-------------------------------- */
+
+.hero {
+  padding: 78px 0 52px;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+
+  color: var(--secondary);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  max-width: 850px;
+
+  font-size: clamp(42px, 7vw, 68px);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  font-weight: 750;
+}
+
+.hero-copy {
+  max-width: 700px;
+  margin: 28px 0 0;
+
+  color: var(--secondary);
+
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+
+/* --------------------------------
+   Home Cards
+-------------------------------- */
+
+.cards-section {
+  padding: 0 0 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+
+  padding: 0 0 4px;
+
+  transform: translateY(-2px);
+}
+
+.card {
+  min-height: 255px;
+  padding: 34px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background: var(--surface);
+
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.card h2 {
+  margin: 0 0 14px;
+
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.card p {
+  margin: 0;
+
+  color: var(--secondary);
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 24px;
+
+  color: var(--accent);
+
+  font-size: 16px;
+  font-weight: 650;
+}
+
+
+/* --------------------------------
+   Legal Pages
+-------------------------------- */
+
+.legal-page {
+  padding-bottom: 90px;
+}
+
+.legal-header {
+  padding: 72px 0 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-header h1 {
+  font-size: clamp(42px, 6vw, 64px);
+}
+
+.updated,
+.subtitle {
+  margin: 26px 0 0;
+
+  color: var(--secondary);
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.legal-content {
+  width: min(calc(100% - 40px), 900px);
+  margin: 0 auto;
+
+  padding: 4px 0 40px;
+}
+
+.legal-content section {
+  padding-top: 42px;
+}
+
+.legal-content h2 {
+  margin: 0 0 18px;
+
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.legal-content h3 {
+  margin: 30px 0 14px;
+
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.legal-content p,
+.legal-content li,
+.legal-content dd {
+  color: var(--body-text);
+
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+.legal-content ul,
+.legal-content ol {
+  padding-left: 25px;
+}
+
+.legal-content li {
+  margin-bottom: 8px;
+}
+
+.legal-content strong {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.legal-content code {
+  padding: 2px 6px;
+
+  border: 1px solid var(--border);
+  border-radius: 5px;
+
+  background: var(--surface);
+
+  color: var(--text);
+
+  font-size: 0.9em;
+}
+
+
+/* --------------------------------
+   Inline Links
+-------------------------------- */
+
+.inline-link,
+.legal-content a:not(.back-link):not(.button) {
+  color: var(--accent);
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* --------------------------------
+   Information / Privacy Note
+-------------------------------- */
+
+.note {
+  margin: 26px 0;
+  padding: 20px 22px;
+
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+
+  background: var(--surface);
+}
+
+.note p,
+.note {
+  color: var(--body-text);
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* --------------------------------
+   Support Contact Card
+-------------------------------- */
+
+.contact-card {
+  margin: 42px 0 12px;
+  padding: 28px;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  background: var(--surface);
+}
+
+.contact-card dl {
+  margin: 0;
+}
+
+.contact-card dt {
+  margin-top: 20px;
+
+  color: var(--secondary);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-card dt:first-child {
+  margin-top: 0;
+}
+
+.contact-card dd {
+  margin: 6px 0 0;
+}
+
+.contact-card a {
+  color: var(--accent);
+}
+
+
+/* --------------------------------
+   Buttons
+-------------------------------- */
+
+.button {
+  display: inline-block;
+
+  margin-top: 24px;
+  padding: 13px 20px;
+
+  border-radius: 10px;
+
+  background: var(--text);
+  color: var(--bg) !important;
+
+  font-size: 16px;
+  font-weight: 650;
+
+  text-decoration: none !important;
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+
+/* --------------------------------
+   Back Link
+-------------------------------- */
+
+.back-link {
+  display: inline-block;
+
+  margin-top: 42px;
+
+  color: var(--accent);
+
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* --------------------------------
+   Footer
+-------------------------------- */
+
+.footer {
+  padding: 36px 0 52px;
+}
+
+.footer p {
+  margin: 0;
+
+  color: #7f7f87;
+
+  font-size: 14px;
+}
+
+
+/* --------------------------------
+   Mobile
+-------------------------------- */
+
+@media (max-width: 720px) {
+
+  .container {
+    width: min(calc(100% - 32px), var(--max-width));
+  }
+
+  .hero {
+    padding: 56px 0 42px;
+  }
+
+  .hero-copy {
+    font-size: 17px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .legal-header {
+    padding: 54px 0 38px;
+  }
+
+  .legal-content {
+    width: min(calc(100% - 32px), 900px);
+  }
+
+  .legal-content section {
+    padding-top: 34px;
+  }
+
+  .legal-content h2 {
+    font-size: 22px;
+  }
+
+  .legal-content p,
+  .legal-content li,
+  .legal-content dd {
+    font-size: 16px;
+  }
+
+  .contact-card {
+    padding: 22px;
+  }
+}
